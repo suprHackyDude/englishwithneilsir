@@ -54,11 +54,11 @@ document.getElementById("intro-video").addEventListener("click", () => {
   modalContent.innerHTML = `
     <div class="video-modal">
       <img src="images/niel-portrait.jpeg" alt="Niel Sir intro placeholder" />
-      <div class="meta-row"><span>Demo template</span><span>Intro video</span></div>
-      <h3>Intro video yahan aayegi</h3>
-      <p>Yahan Niel Sir ka short intro / funnel video lagega. Abhi yeh placeholder hai — real video aate hi play ho jayega.</p>
+      <div class="meta-row"><span>Preview</span><span>Intro video</span></div>
+      <h3>Intro video coming here</h3>
+      <p>This is the slot for Niel Sir’s short intro. When the video is ready, it will play here.</p>
       <a class="btn btn-gold" href="https://wa.me/918077055669?text=${encodeURIComponent(
-        "Hi Niel Sir, I want to join after the intro."
+        "Hi Niel Sir, I want a Spoken English demo."
       )}">WhatsApp now</a>
     </div>
   `;
@@ -90,7 +90,7 @@ if (row && dots) {
     dots.appendChild(d);
   });
   row.addEventListener("scroll", () => {
-    const i = Math.round(row.scrollLeft / cards[0].offsetWidth);
+    const i = Math.round(row.scrollLeft / Math.max(cards[0].offsetWidth, 1));
     dots.querySelectorAll("span").forEach((d, n) => d.classList.toggle("on", n === i));
   }, { passive: true });
 }
@@ -103,3 +103,50 @@ document.getElementById("lead-form").addEventListener("submit", (e) => {
   )}. I want ${form.get("course")}.`;
   window.location.href = `https://wa.me/918077055669?text=${encodeURIComponent(text)}`;
 });
+
+const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const nav = document.getElementById("nav");
+const progress = document.getElementById("progress");
+const videoImg = document.querySelector(".video-frame img");
+
+const onScroll = () => {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
+  nav.classList.toggle("compact", window.scrollY > 24);
+  if (videoImg && !reduce) {
+    const rect = videoImg.parentElement.getBoundingClientRect();
+    const p = (window.innerHeight / 2 - rect.top) / window.innerHeight;
+    videoImg.style.transform = `scale(1.08) translateY(${p * 18}px)`;
+  }
+};
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+
+const io = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("in");
+      const counter = entry.target.querySelector("[data-count]");
+      if (counter && !counter.dataset.done) {
+        counter.dataset.done = "1";
+        const end = Number(counter.dataset.count);
+        const start = performance.now();
+        const tick = (now) => {
+          const t = Math.min((now - start) / 900, 1);
+          counter.textContent = Math.round(end * t);
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+    });
+  },
+  { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+);
+
+document.querySelectorAll(".reveal").forEach((el, i) => {
+  el.style.transitionDelay = reduce ? "0s" : `${(i % 6) * 0.06}s`;
+  io.observe(el);
+});
+
+if (reduce) document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));

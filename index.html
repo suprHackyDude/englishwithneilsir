@@ -3,144 +3,220 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0f2a27" />
-  <meta name="description" content="Niel Sir — Spoken English. Intro, testimonials, and 2 / 4 / 6 month batches." />
+  <meta name="theme-color" content="#070c10" />
+  <meta name="description" content="Niel Sir — Spoken English trainer. Online and offline classes for students and professionals." />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <title>Niel Sir | Spoken English</title>
+  <title>Niel Sir | Spoken English Trainer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect rx='14' width='64' height='64' fill='%230f2a27'/><text x='50%' y='56%' text-anchor='middle' font-size='28' font-family='Georgia' fill='%23f4ead6'>N</text></svg>" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect rx='14' width='64' height='64' fill='%23070c10'/><text x='50%' y='56%' text-anchor='middle' font-size='28' font-family='Georgia' fill='%23d4b06a'>N</text></svg>" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="progress" id="progress"></div>
   <div class="atmosphere" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
-  <header class="nav">
+  <header class="nav" id="nav">
     <a class="brand" href="#top">
       <span class="brand-mark">N</span>
-      Niel Sir
+      English with Niel Sir
     </a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     <nav class="nav-links">
-      <a href="#intro">Intro</a>
-      <a href="#voices">Voices</a>
+      <a href="#about">Trainer</a>
+      <a href="#method">Method</a>
+      <a href="#voices">Stories</a>
       <a href="#courses">Courses</a>
-      <a class="nav-cta" href="#enroll">Join now</a>
+      <a class="nav-cta" href="#enroll">Book a demo</a>
     </nav>
   </header>
 
   <main id="top">
-    <section class="funnel" id="intro">
-      <p class="kicker">English with Niel Sir</p>
-      <h1>Your English on paper is fine.</h1>
-      <p class="script">So why is speaking still hard?</p>
+    <section class="hero" id="intro">
+      <p class="kicker reveal">Spoken English studio · since 2021</p>
+      <h1 class="reveal">Your English on paper is fine.</h1>
+      <p class="script reveal">So why is this conversation still hard?</p>
 
-      <button class="video-frame" type="button" id="intro-video" aria-label="Play intro video">
+      <button class="video-frame reveal" type="button" id="intro-video" aria-label="Play intro video">
         <img src="images/niel-portrait.jpeg" alt="Niel Sir" />
         <span class="video-shade"></span>
         <span class="play-orb" aria-hidden="true"></span>
         <span class="video-label">
-          <b>Intro video yahan aayegi</b>
-          <small>Tap to preview the funnel</small>
+          <b>Intro video coming here</b>
+          <small>Tap to open the preview</small>
         </span>
       </button>
 
-      <p class="funnel-note">For students and professionals who freeze in real conversation. Online + offline.</p>
-      <a class="btn btn-gold btn-wide" href="https://wa.me/918077055669?text=Hi%20Niel%20Sir%2C%20I%20watched%20the%20intro%20and%20want%20to%20join.">Join a batch →</a>
-      <p class="trust">Demo first · Call or WhatsApp · Since 2021</p>
+      <p class="lede reveal">For students and working professionals who freeze while speaking. Live classes — online and offline.</p>
+      <a class="btn btn-gold reveal" href="https://wa.me/918077055669?text=Hi%20Niel%20Sir%2C%20I%20want%20a%20Spoken%20English%20demo.">Book a free demo</a>
+      <p class="trust reveal">No pressure · WhatsApp or call · Personal speaking plan</p>
+    </section>
 
-      <ul class="chips">
-        <li>Pronunciation</li>
-        <li>Conversation</li>
-        <li>Interviews</li>
-        <li>Live classes</li>
-      </ul>
+    <section class="stats" aria-label="Highlights">
+      <article class="reveal"><b data-count="5">0</b><span>Years teaching</span></article>
+      <article class="reveal"><b>2</b><span>Modes · online &amp; offline</span></article>
+      <article class="reveal"><b>70%</b><span>Of class is speaking</span></article>
+      <article class="reveal"><b>1:1</b><span>Live correction</span></article>
+    </section>
+
+    <section class="about" id="about">
+      <figure class="about-photo reveal">
+        <img src="images/niel-hero.jpeg" alt="Niel Sir, spoken English trainer" />
+      </figure>
+      <div class="about-copy reveal">
+        <p class="kicker">Meet the trainer</p>
+        <h2>Niel Sir</h2>
+        <p class="role">Professional Spoken English Trainer</p>
+        <p>He trains people who already “know” English — and still go silent in interviews, meetings, college, or daily talk.</p>
+        <p>Five years. Small batches. You speak. He stops you. You say it right.</p>
+        <ul class="ticks">
+          <li>Students &amp; working professionals</li>
+          <li>Online live + offline classroom</li>
+          <li>Pronunciation, fluency, interview English</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="for" id="for">
+      <header class="band reveal">
+        <p class="kicker">Who it’s for</p>
+        <h2>Two kinds of learners. One speaking habit.</h2>
+      </header>
+      <div class="for-grid">
+        <article class="for-card reveal">
+          <img src="images/service-students.jpg" alt="Students learning spoken English" />
+          <div>
+            <h3>Students</h3>
+            <p>Class talks, presentations, and the courage to answer in English.</p>
+          </div>
+        </article>
+        <article class="for-card reveal">
+          <img src="images/course-professional.jpg" alt="Professionals practising English" />
+          <div>
+            <h3>Professionals</h3>
+            <p>Meetings, clients, interviews — English you can use at work tomorrow.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="method" id="method">
+      <header class="band reveal">
+        <p class="kicker">How class works</p>
+        <h2>Speak. Fix. Repeat.</h2>
+      </header>
+      <ol class="steps">
+        <li class="reveal"><b>01</b><h3>Diagnose</h3><p>A short speaking test. We find where you freeze.</p></li>
+        <li class="reveal"><b>02</b><h3>Speak first</h3><p>Most of the hour is you talking — not a grammar lecture.</p></li>
+        <li class="reveal"><b>03</b><h3>Correct live</h3><p>Wrong sentence? Fix it in the moment. Say it again.</p></li>
+        <li class="reveal"><b>04</b><h3>Real life</h3><p>Interview, office, college, travel — the English you actually need.</p></li>
+      </ol>
     </section>
 
     <section class="voices" id="voices">
-      <header class="band">
-        <p class="kicker dark">Testimonials</p>
+      <header class="band reveal">
+        <p class="kicker">Student voices</p>
         <h2>They started speaking.</h2>
       </header>
       <div class="voices-row" id="voices-row">
-        <figure>
+        <figure class="reveal">
           <img src="images/testimonial-anjali.jpg" alt="Anjali" />
           <blockquote>“I stopped translating in my head.”</blockquote>
           <figcaption>Anjali · Product</figcaption>
         </figure>
-        <figure>
+        <figure class="reveal">
           <img src="images/testimonial-rohit.jpg" alt="Rohit" />
-          <blockquote>“A gym for speaking.”</blockquote>
+          <blockquote>“It felt like a gym for speaking.”</blockquote>
           <figcaption>Rohit · Sales</figcaption>
         </figure>
-        <figure>
+        <figure class="reveal">
           <img src="images/testimonial-priya.jpg" alt="Priya" />
           <blockquote>“Now I volunteer in class.”</blockquote>
-          <figcaption>Priya · Student</figcaption>
+          <figcaption>Priya · College</figcaption>
         </figure>
-        <figure>
+        <figure class="reveal">
           <img src="images/testimonial-arjun.jpg" alt="Arjun" />
           <blockquote>“Clear. Polite. Professional.”</blockquote>
           <figcaption>Arjun · Hospitality</figcaption>
         </figure>
       </div>
-      <div class="dots" id="voice-dots" aria-hidden="true"></div>
+      <div class="dots" id="voice-dots"></div>
     </section>
 
     <section class="courses" id="courses">
-      <header class="band">
-        <p class="kicker dark">Courses</p>
-        <h2>2, 4 or 6 months.</h2>
+      <header class="band reveal">
+        <p class="kicker">Batches</p>
+        <h2>Choose a duration.</h2>
+        <p class="band-note">Tap a card for what’s inside. Fees are for the full batch.</p>
       </header>
       <div class="price-grid">
-        <button class="price-card" type="button" data-open="beginner">
+        <button class="price-card reveal" type="button" data-open="beginner">
           <img src="images/course-foundation.jpg" alt="" />
           <div class="price-body">
             <em>Beginner</em>
             <h3>Start Speaking</h3>
-            <p>Daily English. Simple sentences. You become a confident beginner.</p>
-            <div class="price-meta">
-              <b>₹4,500</b>
-              <span>2 months</span>
-            </div>
+            <p>Daily English. You begin talking with confidence.</p>
+            <div class="price-meta"><b>₹4,500</b><span>2 months</span></div>
           </div>
         </button>
-        <button class="price-card featured-price" type="button" data-open="fluency">
+        <button class="price-card featured-price reveal" type="button" data-open="fluency">
           <img src="images/course-professional.jpg" alt="" />
           <div class="price-body">
             <em>Most chosen</em>
             <h3>Fluency</h3>
-            <p>Conversation, college, and work English without freeze.</p>
-            <div class="price-meta">
-              <b>₹8,000</b>
-              <span>4 months</span>
-            </div>
+            <p>College, interviews, and work — without freezing.</p>
+            <div class="price-meta"><b>₹8,000</b><span>4 months</span></div>
           </div>
         </button>
-        <button class="price-card" type="button" data-open="mastery">
+        <button class="price-card reveal" type="button" data-open="mastery">
           <img src="images/course-public-speaking.jpg" alt="" />
           <div class="price-body">
             <em>Complete</em>
             <h3>Spoken Mastery</h3>
-            <p>Pronunciation, interviews, and public speaking — full path.</p>
-            <div class="price-meta">
-              <b>₹11,000</b>
-              <span>6 months</span>
-            </div>
+            <p>Pronunciation, interviews, and public speaking.</p>
+            <div class="price-meta"><b>₹11,000</b><span>6 months</span></div>
           </div>
         </button>
       </div>
     </section>
 
+    <section class="faq" id="faq">
+      <header class="band reveal">
+        <p class="kicker">Questions</p>
+        <h2>Before you join.</h2>
+      </header>
+      <div class="faq-list">
+        <details class="reveal" open>
+          <summary>Is this grammar tuition?</summary>
+          <p>No. It is spoken English. Grammar is taught inside conversation, so you can use it while talking.</p>
+        </details>
+        <details class="reveal">
+          <summary>Online or offline?</summary>
+          <p>Both. Same method. Offline for group energy. Online if your schedule is tight.</p>
+        </details>
+        <details class="reveal">
+          <summary>Can working professionals join?</summary>
+          <p>Yes. There are slots for meetings, interviews, and client English.</p>
+        </details>
+        <details class="reveal">
+          <summary>Do I need a demo?</summary>
+          <p>Yes. A short speaking demo first. Then Niel Sir suggests the right batch.</p>
+        </details>
+      </div>
+    </section>
+
     <section class="enroll" id="enroll">
-      <div class="enroll-copy">
-        <p class="kicker">Start</p>
-        <h2>Book a demo.</h2>
-        <div class="contact-pills">
-          <a href="tel:+918077055669">80770 55669</a>
-          <a href="mailto:englishwithnielsir@gmail.com">englishwithnielsir@gmail.com</a>
+      <div class="enroll-card reveal">
+        <div>
+          <p class="kicker">Start this week</p>
+          <h2>Book a demo class.</h2>
+          <p>Tell us if you are a student or a professional. We reply on WhatsApp.</p>
+          <div class="contact-pills">
+            <a href="tel:+918077055669">80770 55669</a>
+            <a href="mailto:englishwithnielsir@gmail.com">englishwithnielsir@gmail.com</a>
+          </div>
         </div>
         <form class="lead-form" id="lead-form">
           <input name="name" required placeholder="Your name" autocomplete="name" />
@@ -162,11 +238,14 @@
     </section>
   </main>
 
-  <footer class="footer">English with Niel Sir · since 2021</footer>
+  <footer class="footer">
+    <strong>English with Niel Sir</strong>
+    <span>Spoken English trainer · Online &amp; offline · Since 2021</span>
+  </footer>
 
   <nav class="dock" aria-label="Quick actions">
     <a href="tel:+918077055669">Call</a>
-    <a class="dock-main" href="https://wa.me/918077055669?text=Hi%20Niel%20Sir%2C%20I%20want%20to%20join.">WhatsApp</a>
+    <a class="dock-main" href="https://wa.me/918077055669?text=Hi%20Niel%20Sir%2C%20I%20want%20a%20demo.">WhatsApp</a>
     <a href="#courses">Courses</a>
   </nav>
 
