@@ -74,6 +74,12 @@ links.querySelectorAll("a").forEach((a) =>
 const modal = document.getElementById("course-modal");
 const modalContent = document.getElementById("modal-content");
 
+document.querySelectorAll("[data-jump]").forEach((el) => {
+  el.addEventListener("click", () => {
+    document.querySelector(el.dataset.jump)?.scrollIntoView({ behavior: "smooth" });
+  });
+});
+
 document.querySelectorAll("[data-open]").forEach((btn) => {
   btn.addEventListener("click", () => {
     const data = courses[btn.dataset.open];
