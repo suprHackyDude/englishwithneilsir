@@ -1,63 +1,39 @@
 const courses = {
-  foundation: {
-    title: "Spoken English Foundation",
-    meta: ["Beginner", "8 weeks", "Online + Offline", "Students"],
-    body: "For learners who understand some English but freeze while speaking. You build a daily talking habit.",
+  beginner: {
+    title: "Start Speaking",
+    meta: ["Beginner", "2 months", "₹4,500", "Online + Offline"],
+    body: "Daily English. Simple sentences. You become a confident beginner speaker.",
     points: [
-      "Week 1–2: Self-intro, daily life, 150 ready sentences",
-      "Week 3–4: Questions, opinions, and thinking in English",
-      "Week 5–6: Storytelling, phone talk, college situations",
-      "Week 7–8: Fluency drills + personal correction report",
-      "Outcome: speak about your day without long pauses",
+      "Self-intro and daily conversation",
+      "Think in English, not translate",
+      "Live correction in every class",
+      "Online and offline batches",
     ],
+    wa: "Hi Niel Sir, I want the 2 month Beginner batch for ₹4,500.",
   },
-  professional: {
-    title: "Professional English",
-    meta: ["Working people", "6 weeks", "Mostly online", "Meetings & clients"],
-    body: "Workplace English that sounds natural in stand-ups, client calls, and presentations.",
+  fluency: {
+    title: "Fluency",
+    meta: ["Most chosen", "4 months", "₹8,000", "Conversation + work"],
+    body: "Speak in college, interviews, and work without freezing.",
     points: [
-      "Meetings: agree, disagree, and interrupt politely",
-      "Emails that sound clear, not copied",
-      "Client calls and status updates",
-      "Short presentations with structure",
-      "Outcome: you stop translating Hindi in your head at work",
+      "Longer conversations and opinions",
+      "Interview and meeting English",
+      "Grammar inside speaking",
+      "Weekly speaking review",
     ],
+    wa: "Hi Niel Sir, I want the 4 month Fluency batch for ₹8,000.",
   },
-  interview: {
-    title: "Interview English",
-    meta: ["Job ready", "4 weeks", "1:1 or small group", "Mock interviews"],
-    body: "Answer like a professional — not like a memorised paragraph.",
+  mastery: {
+    title: "Spoken Mastery",
+    meta: ["Complete", "6 months", "₹11,000", "Full path"],
+    body: "Pronunciation, interviews, and public speaking — the complete path.",
     points: [
-      "Tell me about yourself, strengths, gaps — rebuilt",
-      "HR + technical speaking frames",
-      "Body language and pace",
-      "3 recorded mock interviews with feedback",
-      "Outcome: answers that sound like you, in clear English",
+      "Everything in Beginner + Fluency",
+      "Pronunciation and clarity",
+      "Public speaking practice",
+      "Professional English for work",
     ],
-  },
-  pronunciation: {
-    title: "Pronunciation Clinic",
-    meta: ["All levels", "4 weeks", "Sounds & stress", "Clarity"],
-    body: "People should understand you the first time. This batch trains the mouth, not only the mind.",
-    points: [
-      "Vowel and consonant sounds that Indian speakers mix",
-      "Word stress and sentence music",
-      "Common word list from your job or college",
-      "Daily 10-minute voice notes",
-      "Outcome: clearer, more confident speech",
-    ],
-  },
-  speaking: {
-    title: "Public Speaking Lab",
-    meta: ["Stage", "6 weeks", "Students + professionals", "Performance"],
-    body: "From freezing on stage to holding a 3–5 minute talk with a beginning, middle, and end.",
-    points: [
-      "How to open a talk without panic",
-      "Story structure and examples",
-      "Voice, pause, and eye contact",
-      "Weekly stage time (online or offline)",
-      "Outcome: one polished talk you can actually deliver",
-    ],
+    wa: "Hi Niel Sir, I want the 6 month Spoken Mastery batch for ₹11,000.",
   },
 };
 
@@ -74,10 +50,19 @@ links.querySelectorAll("a").forEach((a) =>
 const modal = document.getElementById("course-modal");
 const modalContent = document.getElementById("modal-content");
 
-document.querySelectorAll("[data-jump]").forEach((el) => {
-  el.addEventListener("click", () => {
-    document.querySelector(el.dataset.jump)?.scrollIntoView({ behavior: "smooth" });
-  });
+document.getElementById("intro-video").addEventListener("click", () => {
+  modalContent.innerHTML = `
+    <div class="video-modal">
+      <img src="images/niel-portrait.jpeg" alt="Niel Sir intro placeholder" />
+      <div class="meta-row"><span>Demo template</span><span>Intro video</span></div>
+      <h3>Intro video yahan aayegi</h3>
+      <p>Yahan Niel Sir ka short intro / funnel video lagega. Abhi yeh placeholder hai — real video aate hi play ho jayega.</p>
+      <a class="btn btn-gold" href="https://wa.me/918077055669?text=${encodeURIComponent(
+        "Hi Niel Sir, I want to join after the intro."
+      )}">WhatsApp now</a>
+    </div>
+  `;
+  modal.showModal();
 });
 
 document.querySelectorAll("[data-open]").forEach((btn) => {
@@ -89,19 +74,32 @@ document.querySelectorAll("[data-open]").forEach((btn) => {
       <h3>${data.title}</h3>
       <p>${data.body}</p>
       <ul>${data.points.map((p) => `<li>${p}</li>`).join("")}</ul>
-      <a class="btn btn-gold" href="https://wa.me/918077055669?text=${encodeURIComponent(
-        "Hi Niel Sir, I want details for " + data.title
-      )}">Ask about this batch</a>
+      <a class="btn btn-gold" href="https://wa.me/918077055669?text=${encodeURIComponent(data.wa)}">Join this batch</a>
     `;
     modal.showModal();
   });
 });
+
+const row = document.getElementById("voices-row");
+const dots = document.getElementById("voice-dots");
+if (row && dots) {
+  const cards = [...row.querySelectorAll("figure")];
+  cards.forEach((_, i) => {
+    const d = document.createElement("span");
+    if (i === 0) d.classList.add("on");
+    dots.appendChild(d);
+  });
+  row.addEventListener("scroll", () => {
+    const i = Math.round(row.scrollLeft / cards[0].offsetWidth);
+    dots.querySelectorAll("span").forEach((d, n) => d.classList.toggle("on", n === i));
+  }, { passive: true });
+}
 
 document.getElementById("lead-form").addEventListener("submit", (e) => {
   e.preventDefault();
   const form = new FormData(e.target);
   const text = `Hi Niel Sir, I am ${form.get("name")}. I am a ${form.get(
     "who"
-  )}. I prefer ${form.get("mode")} classes. I want a Spoken English demo.`;
+  )}. I want ${form.get("course")}.`;
   window.location.href = `https://wa.me/918077055669?text=${encodeURIComponent(text)}`;
 });
